@@ -1,23 +1,37 @@
 import React from 'react';
 import '../css/Card.css'
-import shiny_button_off from '../images/shiny-button-off.png';
-import shiny_button_on from '../images/shiny-button-on.png';
-import { useState } from 'react';
+import shinyButtonOff from '../images/shiny-button-off.png';
+import shinyButtonOn from '../images/shiny-button-on.png';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
-function Card ({name, image, image_shiny}) {
+function Card ({name, url}) {
 
   const [isShiny, setIsShiny] = useState(false);
+  const [image, setImage] = useState('');
+  const [imageShiny, setImageShiny] = useState('');
   
   const handleShinyButton = () => {
     setIsShiny(!isShiny);
   };
+
+  useEffect(() => {
+    axios.get(url)
+      .then(response => {
+        setImage(response.data.sprites.other.home.front_default);
+        setImageShiny(response.data.sprites.other.home.front_shiny);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, []);
 
   return (
     <div className='card-container'>
       <div className='card-top'>
         <img 
             className='shiny-button'
-            src={isShiny ? shiny_button_on : shiny_button_off}
+            src={isShiny ? `${shinyButtonOn}` : `${shinyButtonOff}`}
             onClick={handleShinyButton}
             alt='Shiny button'
           />
@@ -25,7 +39,7 @@ function Card ({name, image, image_shiny}) {
       <div className='card-center'>
         <img 
           className='image-pokemon'
-          src={isShiny ? image_shiny : image }
+          src={isShiny ? `${imageShiny}` : `${image}` }
           alt={name}
         />
       </div>
