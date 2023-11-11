@@ -1,17 +1,33 @@
 import './App.css';
 import Card from './components/Card';
-import venusaur from './images/venusaur.gif';
-import venusaur_shiny from './images/venusaur-shiny.gif';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 
 function App() { 
+
+  const [pokemons, setPokemons] = useState([]);
+  const url ='https://pokeapi.co/api/v2/pokemon?limit=2000&offset=0';
+
+  useEffect(() => {
+    axios.get(url)
+      .then(response => {
+        setPokemons(response.data.results);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, []);
+
+
   return (
     <div className="App">
       <div className='cards-container'>
-        <Card 
-          name='Venusaur'
-          image={venusaur}
-          image_shiny={venusaur_shiny}
-        />
+          {pokemons?.map(pokemon => (
+            <Card 
+              name={pokemon.name}
+              url={pokemon.url}
+            />
+          ))}
       </div>
     </div>
   );
