@@ -5,7 +5,7 @@ import shinyButtonOn from '../images/shiny-button-on.png';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function Card ({name, url}) {
+function Card ({name, url, type1, type2}) {
 
   const [isShiny, setIsShiny] = useState(false);
   const [image, setImage] = useState('');
@@ -45,6 +45,7 @@ function Card ({name, url}) {
       </div>
       
       <div className='card-bottom'>
+        
         {name}
       </div>
     </div>
