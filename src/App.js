@@ -24,6 +24,7 @@ function App() {
       <div className='cards-container'>
           {pokemons?.map(pokemon => (
             <Card 
+              key={pokemon.name}
               name={pokemon.name}
               url={pokemon.url}
             />
