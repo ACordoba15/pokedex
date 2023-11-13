@@ -29,10 +29,6 @@ function Card ({name, url}) {
         setImageShiny(response.data.sprites.other.home.front_shiny?? pokemonNotFound);
         setType1(response.data.types[0]?.type.name);
         setType2(response.data.types[1]?.type.name);
-        if(type1 === 'normal')
-        {
-          console.log('Normal: ', TypeColors[type1]);
-        }
       })
       .catch(error => {
         console.error(error);
