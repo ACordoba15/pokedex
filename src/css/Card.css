@@ -34,6 +34,15 @@
   border: 1px solid black;
 }
 
+.gender-icon {
+  width: 20px;
+  height: 20px;
+  margin: 0 2px;
+  border: 1px solid black;
+  cursor: pointer;
+  background: white;
+}
+
 .card-center {
   justify-content: center;
   align-items: center
@@ -53,76 +62,4 @@
 .image-pokemon {
   width: 100px;
   height: 100px;
-}
-
-.normal{
-
-} 
-
-.fire{
-
-} 
-
-.water {
-
-}
-
-.grass {
-
-} 
-
-.electric {
-
-} 
-
-.ice {
-
-} 
-
-.fighting {
-
-}
-
-.poison {
-
-}
-
-.ground {
-
-}
-
-.flying { 
-
-}
-
-.psychic {
-
-}
-
-.bug {
-
-}
-
-.rock {
-
-}
-
-.ghost {
-
-}
-
-.dragon {
-
-}
-
-.dark {
-
-}
-
-.steel {
-
-}
-
-.fairy {
-
 }
