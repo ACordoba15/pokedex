@@ -10,8 +10,6 @@ import TypeIcons from '../utils/TypeIcons';
 
 function Card ({name, url}) {
 
-  
-
   const [isShiny, setIsShiny] = useState(false);
   const [image, setImage] = useState('');
   const [imageShiny, setImageShiny] = useState('');
