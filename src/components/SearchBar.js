@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../css/SearchBar.css';
 import SearchIcon from '../images/search.png';
 
@@ -15,7 +15,8 @@ function SearchBar(props) {
           />
         <img 
           className='searchbar-button-icon' 
-          src={SearchIcon}/>
+          src={SearchIcon}
+          alt='search-icon'/>
       </label>
     </div>
   );
