@@ -1,0 +1,32 @@
+.searchbar-container{
+  height: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchbar-input {
+  width: 500px;
+  font-size: 18px;
+  background-color: white;
+  padding: 14px 32px 14px 16px;
+  border-radius: 4px 0 0 4px;
+  border: 2px solid #1b1b32;
+  outline: none;
+}
+
+/* Boton agregar tarea */
+.searchbar-button {
+  height: 49px;
+  padding: 16px;
+  font-size: 18px;
+  font-family: Lato, sans-serif;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  outline: none;
+  background: white;
+  color: #000;
+  text-transform: capitalize;
+}
