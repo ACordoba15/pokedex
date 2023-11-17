@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from './Card';
+import axios from 'axios';
 
-function ListPokemons(props){
-  const filteredData = props.data.filter((pokemon) => {
+function ListPokemons(props) {
+  const filterPokemonsByName = props.data.filter((pokemon) => {
     if (props.input === '') {
       return pokemon;
     } 
@@ -13,7 +14,7 @@ function ListPokemons(props){
 
   return(
     <>
-      {filteredData?.map(pokemon => (
+      {filterPokemonsByName?.map(pokemon => (
         <Card 
           key={pokemon.name}
           name={pokemon.name}

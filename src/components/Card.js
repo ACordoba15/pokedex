@@ -20,7 +20,7 @@ function Card ({name, url, type}) {
   const [imageShinyF, setImageShinyF] = useState('');
   const [type1, setType1] = useState('');
   const [type2, setType2] = useState('');
-  
+
   const handleShinyButton = () => {
     setIsShiny(!isShiny);
   };
@@ -44,22 +44,19 @@ function Card ({name, url, type}) {
   useEffect(() => {
     axios.get(url)
       .then(response => {
-        if(type === '' || response.data.types[0]?.type.name === type || response.data.types[1]?.type.name === type)
-        {
-          setImage(response.data.sprites.other.home.front_default?? pokemonNotFound);
-          setImageShiny(response.data.sprites.other.home.front_shiny?? pokemonNotFound);
-          setImageM(response.data.sprites.other.home.front_default?? pokemonNotFound);
-          setImageShinyM(response.data.sprites.other.home.front_shiny?? pokemonNotFound)
-          setImageF(response.data.sprites.other.home.front_female?? (response.data.sprites.other.home.front_default ?? pokemonNotFound));
-          setImageShinyF(response.data.sprites.other.home.front_shiny_female?? (response.data.sprites.other.home.front_shiny ?? pokemonNotFound));
-          setType1(response.data.types[0]?.type.name);
-          setType2(response.data.types[1]?.type.name);
-        }
+        setImage(response.data.sprites.other.home.front_default?? pokemonNotFound);
+        setImageShiny(response.data.sprites.other.home.front_shiny?? pokemonNotFound);
+        setImageM(response.data.sprites.other.home.front_default?? pokemonNotFound);
+        setImageShinyM(response.data.sprites.other.home.front_shiny?? pokemonNotFound)
+        setImageF(response.data.sprites.other.home.front_female?? (response.data.sprites.other.home.front_default ?? pokemonNotFound));
+        setImageShinyF(response.data.sprites.other.home.front_shiny_female?? (response.data.sprites.other.home.front_shiny ?? pokemonNotFound));
+        setType1(response.data.types[0]?.type.name);
+        setType2(response.data.types[1]?.type.name);
       })
       .catch(error => {
         console.error(error);
       });
-  }, [url, type]);
+  }, [type]);
 
   return (
     <div 

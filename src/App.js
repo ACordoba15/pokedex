@@ -19,7 +19,6 @@ function App() {
   };
 
   const handleTypeButton = (typePokemon) => {
-    console.log(typePokemon.target.textContent);
     setType(typePokemon.target.textContent)
   };
 
@@ -40,7 +39,7 @@ function App() {
         changeText={changeText} />
       <ListPokemonTypes handleTypeButton={handleTypeButton}/>
       <div className='cards-container'>
-        <ListPokemons input={input} type={type} data={pokemons} />  
+        <ListPokemons input={input} data={pokemons} type={type}/>  
       </div>
     </div>
   );

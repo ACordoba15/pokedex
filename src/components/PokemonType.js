@@ -3,8 +3,7 @@ import TypeColors from '../utils/TypeColors';
 import TypeIcons from '../utils/TypeIcons';
 import '../css/PokemonType.css';
 
-function PokemonType({ type, handleTypeButton })
-{
+function PokemonType({ type, handleTypeButton }) {
   return(
     <div
       className='pokemon-type-container' 
