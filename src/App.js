@@ -5,12 +5,10 @@ import SearchBar from './components/SearchBar';
 import ListPokemons from './components/ListPokemons';
 import ListPokemonTypes from './components/ListPokemonTypes';
 
-
 function App() { 
-
   const [pokemons, setPokemons] = useState([]);
   const [input, setInput] = useState('');
-  const [type, setType] = useState('')
+  const [type, setType] = useState('');
 
   const url ='https://pokeapi.co/api/v2/pokemon?limit=2000&offset=0';
 

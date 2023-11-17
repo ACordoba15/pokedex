@@ -56,7 +56,7 @@ function Card ({name, url, type}) {
       .catch(error => {
         console.error(error);
       });
-  }, [type]);
+  }, [url]);
 
   return (
     <div 

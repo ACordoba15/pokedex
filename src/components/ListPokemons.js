@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Card from './Card';
-import axios from 'axios';
 
 function ListPokemons(props) {
   const filterPokemonsByName = props.data.filter((pokemon) => {
