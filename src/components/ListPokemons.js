@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import Card from './Card';
 
 function ListPokemons(props){
@@ -18,6 +18,7 @@ function ListPokemons(props){
           key={pokemon.name}
           name={pokemon.name}
           url={pokemon.url}
+          type={props.type}
         />
       ))}
     </>

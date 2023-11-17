@@ -9,8 +9,7 @@ import pokemonNotFound from '../images/pokemonNotFound.png';
 import male from '../images/male.png';
 import female from '../images/female.png';
 
-function Card ({name, url}) {
-
+function Card ({name, url, type}) {
   const [isShiny, setIsShiny] = useState(false);
   const [isMale, setIsMale] = useState(true)
   const [image, setImage] = useState('');
@@ -45,19 +44,22 @@ function Card ({name, url}) {
   useEffect(() => {
     axios.get(url)
       .then(response => {
-        setImage(response.data.sprites.other.home.front_default?? pokemonNotFound);
-        setImageShiny(response.data.sprites.other.home.front_shiny?? pokemonNotFound);
-        setImageM(response.data.sprites.other.home.front_default?? pokemonNotFound);
-        setImageShinyM(response.data.sprites.other.home.front_shiny?? pokemonNotFound)
-        setImageF(response.data.sprites.other.home.front_female?? response.data.sprites.other.home.front_default);
-        setImageShinyF(response.data.sprites.other.home.front_shiny_female?? response.data.sprites.other.home.front_shiny);
-        setType1(response.data.types[0]?.type.name);
-        setType2(response.data.types[1]?.type.name);
+        if(type === '' || response.data.types[0]?.type.name === type || response.data.types[1]?.type.name === type)
+        {
+          setImage(response.data.sprites.other.home.front_default?? pokemonNotFound);
+          setImageShiny(response.data.sprites.other.home.front_shiny?? pokemonNotFound);
+          setImageM(response.data.sprites.other.home.front_default?? pokemonNotFound);
+          setImageShinyM(response.data.sprites.other.home.front_shiny?? pokemonNotFound)
+          setImageF(response.data.sprites.other.home.front_female?? (response.data.sprites.other.home.front_default ?? pokemonNotFound));
+          setImageShinyF(response.data.sprites.other.home.front_shiny_female?? (response.data.sprites.other.home.front_shiny ?? pokemonNotFound));
+          setType1(response.data.types[0]?.type.name);
+          setType2(response.data.types[1]?.type.name);
+        }
       })
       .catch(error => {
         console.error(error);
       });
-  }, []);
+  }, [url, type]);
 
   return (
     <div 
