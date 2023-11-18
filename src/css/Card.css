@@ -20,6 +20,7 @@
   justify-content: flex-end;
   align-items: center;
   cursor: pointer;
+  filter: drop-shadow(1px 2px 1px #000);
 }
 
 .type-icon-container
@@ -31,16 +32,15 @@
   width: 20px;
   height: 20px;
   margin: 0 2px;
-  border: 1px solid black;
+  filter: drop-shadow(1px 2px 1px #000);
 }
 
 .gender-icon {
   width: 20px;
   height: 20px;
   margin: 0 2px;
-  border: 1px solid black;
   cursor: pointer;
-  background: white;
+  filter: drop-shadow(1px 2px 1px #000);
 }
 
 .card-center {
@@ -57,9 +57,11 @@
   align-items: center;
   min-height: 50px;
   text-align: center;
+  text-transform: capitalize;
 }
 
 .image-pokemon {
   width: 100px;
   height: 100px;
+  filter: drop-shadow(15px 10px 6px #000);
 }
