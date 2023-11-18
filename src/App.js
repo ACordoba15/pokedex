@@ -17,7 +17,12 @@ function App() {
   };
 
   const handleTypeButton = (typePokemon) => {
-    setType(typePokemon.target.textContent)
+    if (type === '' || type !== typePokemon.target.innerHTML) {
+      setType(typePokemon.target.textContent);
+    }
+    else {
+      setType('');
+    }
   };
 
   useEffect(() => {
@@ -28,14 +33,14 @@ function App() {
       .catch(error => {
         console.error(error);
       });
-  }, []);
+  }, [url]);
 
   return (
     <div className='App'>
       <SearchBar 
         onChange={pokemons} 
         changeText={changeText} />
-      <ListPokemonTypes handleTypeButton={handleTypeButton}/>
+      <ListPokemonTypes selectedType={type} handleTypeButton={handleTypeButton}/>
       <div className='cards-container'>
         <ListPokemons input={input} data={pokemons} type={type}/>  
       </div>

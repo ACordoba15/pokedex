@@ -58,12 +58,12 @@ function Card ({name, url, type}) {
       });
   }, [url]);
 
-  return (
+  const card = (
     <div 
-      className={'card-container'} 
+      className='card-container' 
       style={{background: `linear-gradient(${TypeColors[type1]}, ${TypeColors[type2] ?? TypeColors[type1]}`}}
     >
-      <div className={'card-top'}>
+      <div className='card-top'>
         <div className='type-icon-container'>
         <img
             className='type-icon' 
@@ -73,7 +73,7 @@ function Card ({name, url, type}) {
           { 
             TypeIcons[type2] ?
             <img 
-              className={'type-icon'}
+              className='type-icon'
               src={TypeIcons[type2]} 
               alt={`type ${type2 }` }/> 
             : null
@@ -85,7 +85,7 @@ function Card ({name, url, type}) {
             alt='male icon' />
           
           <img 
-            className={'gender-icon'}
+            className='gender-icon'
             src={female} 
             onClick={handleFemaleButton}
             alt='female icon'/>
@@ -106,11 +106,17 @@ function Card ({name, url, type}) {
         />
       </div>
       
-      <div className={'card-bottom'}>
+      <div className='card-bottom'>
         {name}
       </div>
-    </div>
+    </div> 
   )
+
+  if (type1 === type || type2 === type || type === ''){
+    return (
+      card
+    )
+  }
 };
 
 export default Card;
