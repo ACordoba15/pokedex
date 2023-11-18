@@ -3,9 +3,9 @@ import TypeColors from '../utils/TypeColors';
 import TypeIcons from '../utils/TypeIcons';
 import '../css/PokemonType.css';
 
-function PokemonType({ type, handleTypeButton }) {
+function PokemonType({ type, selectedType, handleTypeButton }) {
   return(
-    <div
+    <button
       className='pokemon-type-container' 
       style={{background: `${TypeColors[type]}`}}
       onClick={handleTypeButton}>
@@ -13,8 +13,8 @@ function PokemonType({ type, handleTypeButton }) {
         className='pokemon-type-image' 
         src={TypeIcons[type]}
         alt={`icon-${type}`}/>
-      <p className='pokemon-type-text'>{type}</p>
-    </div>
+      <p className={`${(selectedType !== type) ? 'pokemon-type-text' : 'pokemon-type-text-selected'}`}>{type}</p>
+    </button>
   );
 }
 

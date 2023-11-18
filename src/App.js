@@ -5,12 +5,10 @@ import SearchBar from './components/SearchBar';
 import ListPokemons from './components/ListPokemons';
 import ListPokemonTypes from './components/ListPokemonTypes';
 
-
 function App() { 
-
   const [pokemons, setPokemons] = useState([]);
   const [input, setInput] = useState('');
-  const [type, setType] = useState('')
+  const [type, setType] = useState('');
 
   const url ='https://pokeapi.co/api/v2/pokemon?limit=2000&offset=0';
 
@@ -19,7 +17,12 @@ function App() {
   };
 
   const handleTypeButton = (typePokemon) => {
-    setType(typePokemon.target.textContent)
+    if (type === '' || type !== typePokemon.target.innerHTML) {
+      setType(typePokemon.target.textContent);
+    }
+    else {
+      setType('');
+    }
   };
 
   useEffect(() => {
@@ -30,14 +33,14 @@ function App() {
       .catch(error => {
         console.error(error);
       });
-  }, []);
+  }, [url]);
 
   return (
     <div className='App'>
       <SearchBar 
         onChange={pokemons} 
         changeText={changeText} />
-      <ListPokemonTypes handleTypeButton={handleTypeButton}/>
+      <ListPokemonTypes selectedType={type} handleTypeButton={handleTypeButton}/>
       <div className='cards-container'>
         <ListPokemons input={input} data={pokemons} type={type}/>  
       </div>
